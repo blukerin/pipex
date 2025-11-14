@@ -18,9 +18,6 @@ void	child2(char *argv[], char *envp[], int *fd, int outfile)
 	char	**comm;
 
 	comm = ft_split(argv[3], ' ');
-	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (outfile == -1)
-		error_file(argv[4]);
 	dup2(fd[0], STDIN_FILENO);
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[0]);

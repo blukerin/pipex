@@ -12,6 +12,13 @@
 
 #include "../includes/pipex.h"
 
+void	close_fds(int file, int fd_0, int fd_1)
+{
+	close(file);
+	close(fd_0);
+	close(fd_1);
+}
+
 static char	**search_in_envp(char *envp[])
 {
 	char	**split_paths;

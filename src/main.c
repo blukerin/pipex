@@ -28,14 +28,14 @@ int	main(int argc, char *argv[], char *envp[])
 		error();
 	else if (pid1 == 0)
 		child(argv, envp, fd, file);
-	file = get_fd_file(argv[1], 2);
+	close(file);
+	file = get_fd_file(argv[4], 2);
 	pid2 = fork();
 	if (pid2 == -1)
 		error();
 	else if (pid2 == 0)
 		child2(argv, envp, fd, file);
-	close(fd[0]);
-	close(fd[1]);
+	close_fds(file, fd[0], fd[1]);
 	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
 	return (0);
