@@ -86,7 +86,7 @@ int	get_fd_file(char *file, int child)
 
 void	check_argc(int argc)
 {
-	if (argc < 5)
+	if (argc != 5)
 	{
 		ft_putstr_fd("wrong number of arguments\n", 2);
 		exit(EXIT_FAILURE);
